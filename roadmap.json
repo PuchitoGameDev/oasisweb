@@ -1,0 +1,15 @@
+{
+  "updated": "2026-07-26",
+  "shipped": [
+    "Local chat",
+    "GGUF models",
+    "Voice",
+    "Tool calling"
+  ],
+  "next": [
+    "Plugins",
+    "Linux",
+    "macOS",
+    "Multi-agent"
+  ]
+}
