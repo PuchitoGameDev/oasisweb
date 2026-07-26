@@ -8,7 +8,7 @@ description: "Release notes, deep dives, and what we're learning building OASIS.
 
 # TODO: update these two once you're on a custom domain (see domain discussion).
 # While on oasislocal.github.io/OASIS:
-url: "https://oasislocal.github.io"
+url: "https://puchitogamedev.github.io/oasisweb/"
 baseurl: "/OASIS"
 # Once on e.g. https://oasislocal.com:
 # url: "https://oasislocal.com"
