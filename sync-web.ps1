@@ -92,11 +92,11 @@ try {
     if ($LASTEXITCODE -ne 0) { Fail "tree restore from main failed" }
   } else {
     $shell = if ($Mode -eq "teaser") { "launch/teaser.html" } else { "launch/countdown.html" }
-    $html = Get-Content -Raw (Join-Path $PSScriptRoot $shell)
+    $html = [System.IO.File]::ReadAllText((Join-Path $PSScriptRoot $shell))
     if ($Mode -eq "countdown") {
       try { [void][DateTime]$RevealDate } catch { Fail "RevealDate is not valid ISO-8601: $RevealDate" }
       $dt = [DateTime]$RevealDate
-      $human = $dt.ToUniversalTime().ToString("dddd, dd MMMM yyyy HH:mm 'UTC'")
+      $human = $dt.ToUniversalTime().ToString("dddd, dd MMMM yyyy HH:mm 'UTC'", [System.Globalization.CultureInfo]::InvariantCulture)
       $html = $html.Replace("__REVEAL_ISO__", $RevealDate).Replace("__REVEAL_HUMAN__", $human)
     }
     [System.IO.File]::WriteAllText((Join-Path $wt "index.html"), $html)
