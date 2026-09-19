@@ -99,7 +99,7 @@ try {
       $human = $dt.ToUniversalTime().ToString("dddd, dd MMMM yyyy HH:mm 'UTC'")
       $html = $html.Replace("__REVEAL_ISO__", $RevealDate).Replace("__REVEAL_HUMAN__", $human)
     }
-    Set-Content -LiteralPath (Join-Path $wt "index.html") -Value $html -Encoding utf8NoBOM
+    [System.IO.File]::WriteAllText((Join-Path $wt "index.html"), $html)
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot "launch/404.html") -Destination (Join-Path $wt "404.html")
     [System.IO.File]::WriteAllText((Join-Path $wt "robots.txt"), "User-agent: *`nDisallow: /`n")
     New-Item -ItemType File -Path (Join-Path $wt ".nojekyll") -Force | Out-Null
