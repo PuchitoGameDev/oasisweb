@@ -2,10 +2,18 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'none'">
+<!-- The policy names the three things this page does not do, and each one is
+     enforced rather than promised: frame-src and base-uri are 'none' because the
+     page has no frames and no base element, and the referrer policy keeps the URL
+     of this page from travelling with the outbound link to GitHub. A privacy
+     claim a reader cannot check is decoration, so everything it needs is either
+     in the markup or in the source they can read. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src 'none'; form-action 'none'">
+<meta name="referrer-policy" content="no-referrer">
+<meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>O.A.S.I.S. — the oasis is on your own PC</title>
-<meta name="description" content="O.A.S.I.S. is a local-first AI assistant for Windows, made by an independent project in Galicia, Spain. Free Personal edition, no account, no analytics. Download it or read the honest limits.">
+<meta name="description" content="O.A.S.I.S. is a local-first AI assistant for Windows, built by an independent project. Free Personal edition, no account, no analytics. Download it or read the honest limits.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://oasislocal.github.io/">
 <link rel="alternate" hreflang="en" href="https://oasislocal.github.io/">
@@ -17,7 +25,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="O.A.S.I.S.">
 <meta property="og:title" content="O.A.S.I.S. — the oasis is on your own PC">
-<meta property="og:description" content="A local-first AI assistant for Windows, made by an independent project in Galicia, Spain. Free, no account, no analytics.">
+<meta property="og:description" content="A local-first AI assistant for Windows, built by an independent project. Free, no account, no analytics.">
 <meta property="og:url" content="https://oasislocal.github.io/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
@@ -28,7 +36,7 @@
 <meta property="og:image:alt" content="O.A.S.I.S. — the AI assistant that lives on your PC">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="O.A.S.I.S. — the oasis is on your own PC">
-<meta name="twitter:description" content="A local-first AI assistant for Windows, made by an independent project in Galicia, Spain.">
+<meta name="twitter:description" content="A local-first AI assistant for Windows, built by an independent project.">
 <meta name="twitter:image" content="https://oasislocal.github.io/O.A.S.I.S./assets/og-card.png">
 <link rel="stylesheet" href="/O.A.S.I.S./assets/fonts/fonts.css">
 <script>
@@ -423,9 +431,12 @@ h1 {
   <div class="sec-head">
     <p class="kicker">The project</p>
     <h2>An independent project, not a company.</h2>
-    <p>O.A.S.I.S. is made in Galicia, Spain. There is no company behind it, no sales
-      team and nothing to buy except a subscription that does not exist yet. The work
-      is released in the open, with the roadmap and the limits published alongside it.</p>
+    <p>O.A.S.I.S. is built by an independent project. There is no company behind
+      it, no sales team and nothing to buy except a subscription that does not exist
+      yet. The work is released in the open, with the roadmap and the limits published
+      alongside it. We do not publish where the project comes from: a product that
+      asks you to keep your data on your own machine should not start by handing over
+      its author's address.</p>
   </div>
   <ul class="list">
     <li>
@@ -543,14 +554,43 @@ h1 {
   </div>
 </section>
 
+<section class="sec">
+  <div class="sec-head">
+    <p class="kicker">This page</p>
+    <h2>What this page does not do.</h2>
+    <p>Listed here because a privacy claim is only worth what a reader can check.
+      All three are enforced by the page, not promised by it.</p>
+  </div>
+  <ul class="list">
+    <li>
+      <a href="/O.A.S.I.S./privacy.html">
+        <span class="k">No cookies</span>
+        <span class="d">Nothing is kept on your device but your light or dark choice</span>
+      </a>
+    </li>
+    <li>
+      <a href="/O.A.S.I.S./privacy.html">
+        <span class="k">No third-party requests</span>
+        <span class="d">Every byte comes from this site, and the rule that says so is in the source</span>
+      </a>
+    </li>
+    <li>
+      <a href="/O.A.S.I.S./privacy.html">
+        <span class="k">No analytics</span>
+        <span class="d">The only script here changes the theme, and it tells nobody anything</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
 </main>
 
 <footer>
   <div class="foot">
     <div>
       <h3 class="fth">O.A.S.I.S.</h3>
-      <p>A local-first AI assistant for Windows, made by an independent project in
-        Galicia, Spain. Free, no account, no analytics.</p>
+      <p>A local-first AI assistant for Windows, built by an independent project. Free,
+        no account, no analytics.</p>
     </div>
     <div>
       <h3 class="fth">Product</h3>

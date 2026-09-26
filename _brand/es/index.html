@@ -2,10 +2,18 @@
 <html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'none'">
+<!-- La politica nombra las tres cosas que esta pagina no hace, y cada una la
+     impone en vez de prometerla: frame-src y base-uri a 'none' porque la pagina
+     no tiene marcos ni elemento base, y la referrer policy evita que la URL de
+     esta pagina viaje con el enlace saliente a GitHub. Una promesa de privacidad
+     que el lector no puede comprobar es decoracion, asi que todo lo que necesita
+     esta en el marcado o en el fuente que puede leer. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src 'none'; form-action 'none'">
+<meta name="referrer-policy" content="no-referrer">
+<meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>O.A.S.I.S. — el oasis está en tu propio PC</title>
-<meta name="description" content="O.A.S.I.S. es un asistente de IA local-first para Windows, creado por un proyecto independiente en Galicia (España). Edición Personal gratuita, sin cuenta y sin analítica. Descárgalo o lee los límites reales.">
+<meta name="description" content="O.A.S.I.S. es un asistente de IA local-first para Windows, creado por un proyecto independiente. Edición Personal gratuita, sin cuenta y sin analítica. Descárgalo o lee los límites reales.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://oasislocal.github.io/es/">
 <link rel="alternate" hreflang="en" href="https://oasislocal.github.io/">
@@ -17,7 +25,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="O.A.S.I.S.">
 <meta property="og:title" content="O.A.S.I.S. — el oasis está en tu propio PC">
-<meta property="og:description" content="Un asistente de IA local-first para Windows, creado por un proyecto independiente en Galicia (España). Gratis, sin cuenta, sin analítica.">
+<meta property="og:description" content="Un asistente de IA local-first para Windows, creado por un proyecto independiente. Gratis, sin cuenta, sin analítica.">
 <meta property="og:url" content="https://oasislocal.github.io/es/">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
@@ -28,7 +36,7 @@
 <meta property="og:image:alt" content="O.A.S.I.S. — el asistente de IA que vive en tu PC">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="O.A.S.I.S. — el oasis está en tu propio PC">
-<meta name="twitter:description" content="Un asistente de IA local-first para Windows, creado por un proyecto independiente en Galicia (España).">
+<meta name="twitter:description" content="Un asistente de IA local-first para Windows, creado por un proyecto independiente.">
 <meta name="twitter:image" content="https://oasislocal.github.io/O.A.S.I.S./assets/og-card.png">
 <link rel="stylesheet" href="/O.A.S.I.S./assets/fonts/fonts.css">
 <script>
@@ -423,9 +431,12 @@ h1 {
   <div class="sec-head">
     <p class="kicker">El proyecto</p>
     <h2>Un proyecto independiente, no una empresa.</h2>
-    <p>O.A.S.I.S. se hace en Galicia (España). Detrás no hay ninguna empresa, ni un equipo
-      de ventas, ni nada que comprar salvo una suscripción que todavía no existe. El trabajo
-      se publica en abierto, con la hoja de ruta y los límites al lado.</p>
+    <p>O.A.S.I.S. lo crea un proyecto independiente. Detrás no hay ninguna empresa, ni
+      un equipo de ventas, ni nada que comprar salvo una suscripción que todavía no
+      existe. El trabajo se publica en abierto, con la hoja de ruta y los límites al
+      lado. No publicamos de dónde viene el proyecto: un producto que te pide que
+      guardes tus datos en tu propio equipo no debería empezar por entregar la
+      dirección de quien lo escribe.</p>
   </div>
   <ul class="list">
     <li>
@@ -544,14 +555,43 @@ h1 {
   </div>
 </section>
 
+<section class="sec">
+  <div class="sec-head">
+    <p class="kicker">Esta página</p>
+    <h2>Lo que esta página no hace.</h2>
+    <p>Está aquí porque una promesa de privacidad solo vale lo que el lector puede
+      comprobar. Las tres las impone la página, no las promete.</p>
+  </div>
+  <ul class="list">
+    <li>
+      <a href="/O.A.S.I.S./es/privacy.html">
+        <span class="k">Sin cookies</span>
+        <span class="d">En tu equipo no queda nada salvo tu elección de tema claro u oscuro</span>
+      </a>
+    </li>
+    <li>
+      <a href="/O.A.S.I.S./es/privacy.html">
+        <span class="k">Sin peticiones a terceros</span>
+        <span class="d">Cada byte viene de este sitio, y la regla que lo dice está en el fuente</span>
+      </a>
+    </li>
+    <li>
+      <a href="/O.A.S.I.S./es/privacy.html">
+        <span class="k">Sin analítica</span>
+        <span class="d">El único script cambia el tema y no le cuenta nada a nadie</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
 </main>
 
 <footer>
   <div class="foot">
     <div>
       <h3 class="fth">O.A.S.I.S.</h3>
-      <p>Un asistente de IA local-first para Windows, hecho por un proyecto independiente en
-        Galicia (España). Gratis, sin cuenta, sin analítica.</p>
+      <p>Un asistente de IA local-first para Windows, creado por un proyecto independiente.
+        Gratis, sin cuenta, sin analítica.</p>
     </div>
     <div>
       <h3 class="fth">Producto</h3>

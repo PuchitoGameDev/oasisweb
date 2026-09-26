@@ -169,6 +169,44 @@ if ($docs["es"] -notmatch "<b>Todav\w+a no disponible</b>") {
   Fail "es : the Max edition is not marked as not available yet"
 }
 
+# No place names, ever. A product sold on keeping your data on your own machine
+# should not start by handing over where its author is, and "Galicia" appeared in
+# five places on this landing before it was removed: the description, og, twitter,
+# the section and the footer. Checked across the whole file, comments included, so
+# a re-introduction in a caption is caught as well as one in the prose.
+#
+# Written as substrings that do not need any accent escaping, so the pattern is
+# plain ASCII and there is nothing here that can silently fail to compile. "Coru"
+# covers both "Coruña" and "Coruna"; "Andaluc" covers "Andalucía"/"Andalucia".
+$places = @(
+  "Galicia", "Coru", "Santiago de Compostela", "Vigo", "Lugo", "Ourense",
+  "Pontevedra", "Gipuzkoa", "Bizkaia", "Barcelona", "Madrid", "Valencia",
+  "Euskadi", "Catalunya", "Catalonia", "Andaluc", "Canary", "Canarias"
+)
+$n_tilde = [char]0xF1
+# Parenthesised for the same reason as $loads above, and the one below it: inside
+# @(), the comma binds tighter than +, so an unparenthesised "a" + $x + "b" splits
+# into fragments and the list silently loses its elements. That is how this very
+# check first reported a country called "Espa".
+$countries = @(
+  ("Spain"),
+  ("Espa" + $n_tilde + "a")
+)
+if ($countries.Count -ne 2) { Fail "the country check is malformed ($($countries.Count) entries, expected 2)" }
+if ($places.Count -ne 18) { Fail "the place check is malformed ($($places.Count) entries, expected 18)" }
+foreach ($lang in @("en", "es")) {
+  foreach ($place in $places) {
+    if ($docs[$lang] -match [regex]::Escape($place)) {
+      Fail ($lang + " : the page names a place (" + $place + "), which a privacy project should not publish")
+    }
+  }
+  foreach ($country in $countries) {
+    if ($docs[$lang] -match [regex]::Escape($country)) {
+      Fail ($lang + " : the page names a country (" + $country + ")")
+    }
+  }
+}
+
 Write-Host "== checks OK ==" -ForegroundColor Green
 
 # Past this point the outcome is decided by git's exit code, not by whether git
