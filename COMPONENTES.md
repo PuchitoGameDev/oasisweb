@@ -108,6 +108,13 @@ estructurados. `check_seo.py` lo parsea y comprueba que las preguntas del schema
 son las mismas que se ven en la página, porque un JSON inválido o desalineado no
 deja ni una marca visible.
 
+El `aria-expanded` y el `aria-controls` de los botones "Expand all" / "Collapse
+all" los pone `components.js`, no la plantilla. El estado se recalcula en cada
+evento `toggle` de los `<details>`, así que refleja la realidad incluso si quien
+lee abre una pregunta a mano; ponerlos en el HTML los dejaría mintiendo en
+cuanto el grupo se abriera o cerrara. El `<details>` nativo no necesita
+`aria-expanded`: ese control lo pone el navegador solo.
+
 ## table
 
 La tabla se escribe como **HTML**, no como markdown, y **con la clase puesta**:
