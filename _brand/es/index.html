@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>O.A.S.I.S. — the oasis is on your own PC</title>
-<meta name="description" content="O.A.S.I.S. is a local-first AI assistant for Windows, made by an independent project in Galicia, Spain. Free Personal edition, no account, no analytics. Download it or read the honest limits.">
+<title>O.A.S.I.S. — el oasis está en tu propio PC</title>
+<meta name="description" content="O.A.S.I.S. es un asistente de IA local-first para Windows, creado por un proyecto independiente en Galicia (España). Edición Personal gratuita, sin cuenta y sin analítica. Descárgalo o lee los límites reales.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://oasislocal.github.io/">
+<link rel="canonical" href="https://oasislocal.github.io/es/">
 <link rel="alternate" hreflang="en" href="https://oasislocal.github.io/">
 <link rel="alternate" hreflang="es" href="https://oasislocal.github.io/es/">
 <link rel="alternate" hreflang="x-default" href="https://oasislocal.github.io/">
@@ -16,26 +16,26 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Crect x='7' y='7' width='18' height='18' fill='none' stroke='%23ffffff' stroke-width='2.5'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="O.A.S.I.S.">
-<meta property="og:title" content="O.A.S.I.S. — the oasis is on your own PC">
-<meta property="og:description" content="A local-first AI assistant for Windows, made by an independent project in Galicia, Spain. Free, no account, no analytics.">
-<meta property="og:url" content="https://oasislocal.github.io/">
-<meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:title" content="O.A.S.I.S. — el oasis está en tu propio PC">
+<meta property="og:description" content="Un asistente de IA local-first para Windows, creado por un proyecto independiente en Galicia (España). Gratis, sin cuenta, sin analítica.">
+<meta property="og:url" content="https://oasislocal.github.io/es/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:image" content="https://oasislocal.github.io/O.A.S.I.S./assets/og-card.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="O.A.S.I.S. — the AI assistant that lives on your PC">
+<meta property="og:image:alt" content="O.A.S.I.S. — el asistente de IA que vive en tu PC">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="O.A.S.I.S. — the oasis is on your own PC">
-<meta name="twitter:description" content="A local-first AI assistant for Windows, made by an independent project in Galicia, Spain.">
+<meta name="twitter:title" content="O.A.S.I.S. — el oasis está en tu propio PC">
+<meta name="twitter:description" content="Un asistente de IA local-first para Windows, creado por un proyecto independiente en Galicia (España).">
 <meta name="twitter:image" content="https://oasislocal.github.io/O.A.S.I.S./assets/og-card.png">
 <link rel="stylesheet" href="/O.A.S.I.S./assets/fonts/fonts.css">
 <script>
-/* The theme has to be on <html> before the first paint. Reading it from a script
-   at the end of the body is too late: the page paints once in dark and then
-   swaps, which is a white flash for anyone who chose light. The key is the same
-   one the product site uses, so the choice survives across both sites. */
+/* El tema tiene que estar en <html> antes del primer pintado. Leerlo desde un
+   script al final del body es tarde: la pagina se pinta una vez en oscuro y
+   despues cambia, que es un fogonazo blanco para quien eligio claro. La clave es
+   la misma que usa el sitio del producto, asi la eleccion sobrevive a ambos. */
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('oasis-theme'); } catch (_) {}
@@ -43,14 +43,13 @@
 }());
 </script>
 <style>
-/* The landing for the brand, in the product's own design system: the same nine
-   colour tokens, the same three faces, the same heavy 2px rules and the same
-   section rhythm. A brand page that invented its own accent colour or its own
-   card style would read as a different company from the one it introduces.
+/* La landing de la marca, con el sistema de diseño del producto: los mismos nueve
+   tokens de color, las mismas tres tipografías, las mismas reglas gruesas de 2px y
+   el mismo ritmo de secciones. Una pagina de marca que se inventara su propio acento
+   o sus propias tarjetas se leería como una empresa distinta de la que presenta.
 
-   The warmth is in the words, not in the paint. The hero makes a promise and
-   everything under it is a fact that can be checked, because that is the tone
-   the rest of the project already uses. */
+   El calor esta en las palabras, no en la pintura. El hero promete y todo lo de
+   debajo es un dato comprobable, que es el tono que ya usa el resto del proyecto. */
 
 :root,
 :root[data-theme="dark"] {
@@ -98,7 +97,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- top bar ---- */
+/* ---- barra superior ---- */
 .top {
   border-bottom: 2px solid var(--strong);
   background: var(--surface);
@@ -132,9 +131,9 @@ body {
   border: 2px solid var(--strong);
   display: block;
 }
-/* Plain links, not a JavaScript widget: each language has its own address here,
-   so switching is navigation. It works with scripting off, it can be shared,
-   crawled and bookmarked, and the browser can translate it. */
+/* Enlaces simples, no un widget de JavaScript: cada idioma tiene su direccion
+   aqui, asi que cambiar de idioma es navegar. Funciona sin scripting, se puede
+   compartir, rastrear y guardar en marcadores, y el navegador puede traducirlo. */
 .lang { display: flex; gap: 2px; margin-left: auto; align-items: center; }
 .lang a, #theme-btn {
   font-family: var(--mono);
@@ -167,8 +166,8 @@ h1 {
 }
 .lede { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin-top: 20px; }
 .lede strong { color: var(--ink); font-weight: 600; }
-/* One primary action. The ghost button is deliberately quiet: two buttons of the
-   same weight split the decision and neither gets the click. */
+/* Una sola accion primaria. El boton fantasma es deliberadamente discreto: dos
+   botones del mismo peso dividen la decision y no se lleva clicks ninguno. */
 .ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 28px; }
 .btn {
   display: inline-flex;
@@ -209,7 +208,7 @@ h1 {
 }
 .proof span:last-child { border-right: 0; }
 
-/* ---- sections ---- */
+/* ---- secciones ---- */
 .sec { max-width: 1160px; margin: 0 auto; padding: 88px 24px 0; }
 .sec-head {
   border-top: 2px solid var(--strong);
@@ -237,7 +236,7 @@ h1 {
 }
 .sec-head p { color: var(--ink-2); max-width: 62ch; margin: 0; }
 
-/* ---- the catalogue ---- */
+/* ---- el catalogo ---- */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -252,8 +251,9 @@ h1 {
   letter-spacing: -.02em;
   margin: 0 0 2px;
 }
-/* The status is the most important word in each cell. "Not available yet" has to
-   be impossible to miss, or the page is implying a sale that does not exist. */
+/* El estado es la palabra mas importante de cada celda. "Todavia no disponible"
+   tiene que ser imposible de pasar por alto, o la pagina esta insinuando una
+   venta que no existe. */
 .grid .state {
   font-family: var(--mono);
   font-size: 11px;
@@ -276,7 +276,7 @@ h1 {
 .grid .go a:hover { background: var(--hover); }
 .grid .go .wait { border-bottom-style: dashed; }
 
-/* ---- facts ---- */
+/* ---- datos ---- */
 .tbl { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 26px; }
 .tbl table { width: 100%; border-collapse: collapse; }
 .tbl th, .tbl td {
@@ -316,7 +316,7 @@ h1 {
 .list .k { font-weight: 500; }
 .list .d { color: var(--ink-3); font-size: 14px; text-align: right; }
 
-/* ---- footer ---- */
+/* ---- pie ---- */
 .foot {
   max-width: 1160px;
   margin: 88px auto 0;
@@ -354,9 +354,9 @@ h1 {
 
 ::selection { background: var(--strong); color: var(--bg); }
 
-/* Focus ring in two layers: :focus is the base so anything that can show a focus
-   indicator does, and :focus:not(:focus-visible) takes it away again for a click,
-   where a ring is only noise. */
+/* Anillo de foco en dos capas: :focus es la base para que todo lo que pueda
+   mostrar un indicador lo muestre, y :focus:not(:focus-visible) lo retira en un
+   clic, donde el anillo solo molesta. */
 :where(a, button):focus {
   outline: 2px solid var(--strong);
   outline-offset: 3px;
@@ -389,8 +389,8 @@ h1 {
   <div class="top-in">
     <span class="brand"><i aria-hidden="true"></i>O.A.S.I.S.</span>
     <div class="lang">
-      <a href="/" aria-current="true" hreflang="en" lang="en" aria-label="English">EN</a>
-      <a href="/es/" hreflang="es" lang="es" aria-label="Español">ES</a>
+      <a href="/" hreflang="en" lang="en" aria-label="English">EN</a>
+      <a href="/es/" aria-current="true" hreflang="es" lang="es" aria-label="Español">ES</a>
       <button id="theme-btn" type="button" aria-label="Switch between light and dark">Light</button>
     </div>
   </div>
@@ -400,56 +400,56 @@ h1 {
 
 <section class="hero">
   <div class="hero-in">
-    <h1>The oasis is on your own PC.</h1>
-    <p class="lede">O.A.S.I.S. is a local-first AI assistant for Windows. The models
-      <strong>run on your own computer</strong>, so it keeps working when the network
-      does not, and what you ask it never has to leave it.</p>
+    <h1>El oasis está en tu propio PC.</h1>
+    <p class="lede">O.A.S.I.S. es un asistente de IA local-first para Windows. Los modelos
+      <strong>se ejecutan en tu propio ordenador</strong>, así que sigue funcionando cuando
+      la red no llega, y nada de lo que le preguntas tiene que salir de él.</p>
     <div class="ctas">
-      <a class="btn" href="/O.A.S.I.S./download.html">Download for Windows</a>
-      <a class="btn ghost" href="/O.A.S.I.S./">See how it works</a>
+      <a class="btn" href="/O.A.S.I.S./es/download.html">Descargar para Windows</a>
+      <a class="btn ghost" href="/O.A.S.I.S./es/">Ver cómo funciona</a>
     </div>
-    <p class="fine">Free beta &middot; Windows 10/11 &middot; No account required &middot;
-      <a href="/O.A.S.I.S./privacy.html">Nothing is collected</a></p>
+    <p class="fine">Beta gratuita &middot; Windows 10/11 &middot; Sin cuenta &middot;
+      <a href="/O.A.S.I.S./es/privacy.html">No se recoge nada</a></p>
     <div class="proof">
       <span>Local-first</span>
-      <span>No analytics</span>
-      <span>100+ tools</span>
-      <span>English &middot; Spanish</span>
+      <span>Sin analítica</span>
+      <span>100+ herramientas</span>
+      <span>Inglés &middot; Español</span>
     </div>
   </div>
 </section>
 
 <section class="sec">
   <div class="sec-head">
-    <p class="kicker">The project</p>
-    <h2>An independent project, not a company.</h2>
-    <p>O.A.S.I.S. is made in Galicia, Spain. There is no company behind it, no sales
-      team and nothing to buy except a subscription that does not exist yet. The work
-      is released in the open, with the roadmap and the limits published alongside it.</p>
+    <p class="kicker">El proyecto</p>
+    <h2>Un proyecto independiente, no una empresa.</h2>
+    <p>O.A.S.I.S. se hace en Galicia (España). Detrás no hay ninguna empresa, ni un equipo
+      de ventas, ni nada que comprar salvo una suscripción que todavía no existe. El trabajo
+      se publica en abierto, con la hoja de ruta y los límites al lado.</p>
   </div>
   <ul class="list">
     <li>
-      <a href="/O.A.S.I.S./blog/">
+      <a href="/O.A.S.I.S./es/blog/">
         <span class="k">Journal</span>
-        <span class="d">How it works, in plain language &middot; 2 articles</span>
+        <span class="d">Cómo funciona, en lenguaje claro &middot; 2 artículos</span>
       </a>
     </li>
     <li>
-      <a href="/O.A.S.I.S./glossary/">
-        <span class="k">Glossary</span>
-        <span class="d">77 terms defined without hand-waving</span>
+      <a href="/O.A.S.I.S./es/glossary/">
+        <span class="k">Glosario</span>
+        <span class="d">77 términos definidos sin rodeos</span>
       </a>
     </li>
     <li>
-      <a href="/O.A.S.I.S./how-it-works.html">
-        <span class="k">How it works</span>
-        <span class="d">Local models, tools and permissions</span>
+      <a href="/O.A.S.I.S./es/how-it-works.html">
+        <span class="k">Cómo funciona</span>
+        <span class="d">Modelos locales, herramientas y permisos</span>
       </a>
     </li>
     <li>
       <a href="https://github.com/OASISLocal/O.A.S.I.S.">
-        <span class="k">Source</span>
-        <span class="d">Public repository, issues open</span>
+        <span class="k">Código</span>
+        <span class="d">Repositorio público, issues abiertas</span>
       </a>
     </li>
   </ul>
@@ -457,38 +457,39 @@ h1 {
 
 <section class="sec">
   <div class="sec-head">
-    <p class="kicker">What exists</p>
-    <h2>Two editions, and what comes next.</h2>
-    <p>One is free and available today. One is not finished. Nothing here is on sale,
-      and the third column is a promise rather than a product.</p>
+    <p class="kicker">Qué existe</p>
+    <h2>Dos ediciones, y lo que viene después.</h2>
+    <p>Una es gratis y está disponible hoy. La otra no está terminada. Nada de esto está
+      a la venta, y la tercera columna es una promesa, no un producto.</p>
   </div>
   <div class="grid">
 
     <div>
       <h3 class="name">Personal</h3>
-      <p class="state">Available now</p>
-      <p class="desc">The local-first assistant for Windows 10 and 11. Local GGUF models
-        through llama.cpp, voice in Spanish and English, memory and documents, everyday
-        PC control and 100+ tools. Up to three projects.</p>
-      <p class="go"><a href="/O.A.S.I.S./download.html">Download</a></p>
+      <p class="state">Disponible ahora</p>
+      <p class="desc">El asistente local-first para Windows 10 y 11. Modelos locales GGUF
+        mediante llama.cpp, voz en español e inglés, memoria y documentos, control del PC
+        del día a día y más de 100 herramientas. Hasta tres proyectos.</p>
+      <p class="go"><a href="/O.A.S.I.S./es/download.html">Descargar</a></p>
     </div>
 
     <div>
       <h3 class="name">Max</h3>
-      <p class="state"><b>Not available yet</b></p>
-      <p class="desc">Adds what Personal leaves out: vision, advanced retrieval over your
-        own documents, a full coding agent, a Docker sandbox, workflows and encrypted
-        sync. There is no release date and no way to buy it today.</p>
-      <p class="go"><a class="wait" href="/O.A.S.I.S./#wl-form">Join the waitlist</a></p>
+      <p class="state"><b>Todavía no disponible</b></p>
+      <p class="desc">Añade lo que Personal deja fuera: visión, recuperación avanzada sobre
+        tus propios documentos, un agente de código completo, un sandbox de Docker,
+        flujos de trabajo y sincronización cifrada. No hay fecha ni forma de comprarlo
+        hoy.</p>
+      <p class="go"><a class="wait" href="/O.A.S.I.S./es/#wl-form">Apuntarse a la lista</a></p>
     </div>
 
     <div>
-      <h3 class="name">What&rsquo;s next</h3>
-      <p class="state">Planned</p>
-      <p class="desc">Linux and macOS builds, foundations for plugins and a marketplace,
-        multi-agent workflows and more local model runtimes. The order is not fixed and
-        the dates are not promised.</p>
-      <p class="go"><a href="/O.A.S.I.S./changelog.html">Follow the changelog</a></p>
+      <h3 class="name">Lo que viene</h3>
+      <p class="state">Planificado</p>
+      <p class="desc">Versiones para Linux y macOS, bases para plugins y un marketplace,
+        flujos de trabajo multiagente y más runtimes de modelos locales. El orden no está
+        fijado y las fechas no se prometen.</p>
+      <p class="go"><a href="/O.A.S.I.S./es/changelog.html">Seguir el registro de cambios</a></p>
     </div>
 
   </div>
@@ -496,47 +497,47 @@ h1 {
 
 <section class="sec">
   <div class="sec-head">
-    <p class="kicker">The facts</p>
-    <h2>What it is, plainly.</h2>
-    <p>Everything below is taken from the product site, which is where the detail lives.</p>
+    <p class="kicker">Los datos</p>
+    <h2>Qué es, sin rodeos.</h2>
+    <p>Todo lo de abajo viene del sitio del producto, que es donde vive el detalle.</p>
   </div>
   <div class="tbl">
     <table>
       <tbody>
         <tr>
-          <th scope="row">Price</th>
-          <td>Free, no account
-            <span class="sub">Personal is not a trial and does not expire</span></td>
+          <th scope="row">Precio</th>
+          <td>Gratis, sin cuenta
+            <span class="sub">Personal no es una prueba de pago y no caduca</span></td>
         </tr>
         <tr>
-          <th scope="row">Status</th>
-          <td>Beta, version 0.2.0
-            <span class="sub">Updated 20 September 2026</span></td>
+          <th scope="row">Estado</th>
+          <td>Beta, versión 0.2.0
+            <span class="sub">Actualizado el 20 de septiembre de 2026</span></td>
         </tr>
         <tr>
-          <th scope="row">Runs on</th>
-          <td>Windows 10 and 11
-            <span class="sub">Your PC, through compatible local models</span></td>
+          <th scope="row">Funciona en</th>
+          <td>Windows 10 y 11
+            <span class="sub">Tu PC, mediante modelos locales compatibles</span></td>
         </tr>
         <tr>
-          <th scope="row">Models</th>
-          <td>Local GGUF models via llama.cpp
-            <span class="sub">No provider is called to answer you</span></td>
+          <th scope="row">Modelos</th>
+          <td>Modelos locales GGUF con llama.cpp
+            <span class="sub">No se llama a ningún proveedor para responderte</span></td>
         </tr>
         <tr>
-          <th scope="row">Tools</th>
-          <td>100+ registered
-            <span class="sub">10 of them ask before acting on your PC</span></td>
+          <th scope="row">Herramientas</th>
+          <td>Más de 100 registradas
+            <span class="sub">10 de ellas preguntan antes de actuar en tu PC</span></td>
         </tr>
         <tr>
-          <th scope="row">Tracking</th>
-          <td>None
-            <span class="sub">No analytics, no third-party requests</span></td>
+          <th scope="row">Seguimiento</th>
+          <td>Ninguno
+            <span class="sub">Sin analítica ni peticiones a terceros</span></td>
         </tr>
         <tr>
-          <th scope="row">Languages</th>
-          <td>English and Spanish
-            <span class="sub">Interface, voice and documentation</span></td>
+          <th scope="row">Idiomas</th>
+          <td>Inglés y español
+            <span class="sub">Interfaz, voz y documentación</span></td>
         </tr>
       </tbody>
     </table>
@@ -549,39 +550,39 @@ h1 {
   <div class="foot">
     <div>
       <h3 class="fth">O.A.S.I.S.</h3>
-      <p>A local-first AI assistant for Windows, made by an independent project in
-        Galicia, Spain. Free, no account, no analytics.</p>
+      <p>Un asistente de IA local-first para Windows, hecho por un proyecto independiente en
+        Galicia (España). Gratis, sin cuenta, sin analítica.</p>
     </div>
     <div>
-      <h3 class="fth">Product</h3>
+      <h3 class="fth">Producto</h3>
       <ul>
-        <li><a href="/O.A.S.I.S./">Overview</a></li>
-        <li><a href="/O.A.S.I.S./download.html">Download</a></li>
-        <li><a href="/O.A.S.I.S./blog/">Journal</a></li>
-        <li><a href="/O.A.S.I.S./glossary/">Glossary</a></li>
+        <li><a href="/O.A.S.I.S./es/">Resumen</a></li>
+        <li><a href="/O.A.S.I.S./es/download.html">Descargar</a></li>
+        <li><a href="/O.A.S.I.S./es/blog/">Journal</a></li>
+        <li><a href="/O.A.S.I.S./es/glossary/">Glosario</a></li>
       </ul>
     </div>
     <div>
       <h3 class="fth">Legal</h3>
       <ul>
-        <li><a href="/O.A.S.I.S./privacy.html">Privacy</a></li>
-        <li><a href="/O.A.S.I.S./eula.html">EULA</a></li>
-        <li><a href="/O.A.S.I.S./third-party-notices.html">Third-party notices</a></li>
-        <li><a href="/O.A.S.I.S./changelog.html">Changelog</a></li>
+        <li><a href="/O.A.S.I.S./es/privacy.html">Privacidad</a></li>
+        <li><a href="/O.A.S.I.S./es/eula.html">EULA</a></li>
+        <li><a href="/O.A.S.I.S./es/third-party-notices.html">Avisos de terceros</a></li>
+        <li><a href="/O.A.S.I.S./es/changelog.html">Registro de cambios</a></li>
       </ul>
     </div>
   </div>
   <div class="base">
-    <span>No trackers &middot; No third-party requests</span>
+    <span>Sin rastreadores &middot; Sin peticiones a terceros</span>
     <span>OASISLocal</span>
   </div>
 </footer>
 
 <script>
 (function () {
-  /* The only script on the page, and it is an enhancement: the theme button. The
-     page is complete and readable with scripting off, and the language switch is
-     a plain link because each language has its own address. */
+  /* El unico script de la pagina, y es una mejora: el boton de tema. La pagina
+     esta completa y se lee sin scripting, y el cambio de idioma es un enlace
+     normal porque cada idioma tiene su direccion. */
   var root = document.documentElement;
   var btn = document.getElementById('theme-btn');
   if (!btn) return;
