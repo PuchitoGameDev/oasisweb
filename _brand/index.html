@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>O.A.S.I.S. — the project</title>
+<meta name="description" content="O.A.S.I.S. is an independent project from Galicia, Spain, building a local-first AI assistant for Windows that runs compatible models on your own hardware.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oasislocal.github.io/">
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111111'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="O.A.S.I.S.">
+<meta property="og:title" content="O.A.S.I.S. — the project">
+<meta property="og:description" content="An independent project from Galicia, Spain, building a local-first AI assistant that lives on your PC.">
+<meta property="og:url" content="https://oasislocal.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/O.A.S.I.S./assets/fonts/fonts.css">
+<style>
+:root {
+  --bg: #f7f7f5;
+  --ink: #111111;
+  --ink-2: #3f3f3c;
+  --ink-3: #595959;
+  --line: rgba(17, 17, 17, 0.18);
+  --hover: #ebebe7;
+}
+[data-theme="dark"] {
+  --bg: #111111;
+  --ink: #ffffff;
+  --ink-2: #c9c9c9;
+  --ink-3: #8f8f8f;
+  --line: rgba(255, 255, 255, 0.16);
+  --hover: #242424;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.wrap {
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.eyebrow {
+  color: var(--ink-3);
+  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.toggles { display: flex; gap: 0.35rem; margin-left: auto; }
+.toggles button {
+  font: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  cursor: pointer;
+}
+.toggles button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink-3); }
+.toggles button:hover { background: var(--hover); }
+main { margin: auto 0; padding: 3rem 0; }
+.mark {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  font-size: clamp(2.6rem, 11vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0 0 0.2rem;
+  line-height: 1.05;
+}
+.dot { color: var(--ink-3); }
+.lede {
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 1.4rem 0 0;
+  max-width: 30rem;
+}
+.body {
+  color: var(--ink-2);
+  margin: 1rem 0 0;
+  max-width: 34rem;
+}
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0 0;
+}
+.links { list-style: none; margin: 0; padding: 0; }
+.links li + li { border-top: 1px solid var(--line); }
+.links a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0.25rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.links a:hover { background: var(--hover); }
+.links .k { font-weight: 500; }
+.links .go { color: var(--ink-3); font-size: 0.9rem; white-space: nowrap; }
+footer {
+  color: var(--ink-3);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+}
+footer a { color: var(--ink-2); }
+@media (max-width: 34rem) {
+  .links a { flex-direction: column; gap: 0.15rem; }
+  .links .go { white-space: normal; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="bar">
+  <span class="eyebrow" data-en="The project behind the app"
+        data-es="El proyecto detrás de la app"></span>
+  <div class="toggles" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="es" aria-pressed="false">ES</button>
+  </div>
+</header>
+
+<main>
+  <h1 class="mark">O<span class="dot">.</span>A<span class="dot">.</span>S<span class="dot">.</span>I<span class="dot">.</span>S<span class="dot">.</span></h1>
+
+  <p class="lede" data-en="A local-first AI assistant that lives on your PC."
+     data-es="Un asistente de IA local-first que vive en tu PC."></p>
+
+  <p class="body" data-en="O.A.S.I.S. is an independent project from Galicia, Spain. It runs compatible local models on your own hardware: no account, no cloud, no analytics."
+     data-es="O.A.S.I.S. es un proyecto independiente de Galicia (España). Ejecuta modelos locales compatibles en tu propio equipo: sin cuenta, sin nube, sin analítica."></p>
+
+  <hr>
+
+  <nav>
+    <ul class="links">
+      <li>
+        <a href="/O.A.S.I.S./">
+          <span class="k" data-en="Visit the product site" data-es="Ir al sitio del producto"></span>
+          <span class="go" data-en="Features, pricing, download" data-es="Características, precios, descarga"></span>
+        </a>
+      </li>
+      <li>
+        <a href="/O.A.S.I.S./blog/">
+          <span class="k" data-en="Read the Journal" data-es="Leer el Journal"></span>
+          <span class="go" data-en="Plain explanations, no hype" data-es="Explicaciones claras, sin humo"></span>
+        </a>
+      </li>
+      <li>
+        <a href="/O.A.S.I.S./glossary/">
+          <span class="k" data-en="Browse the glossary" data-es="Ver el glosario"></span>
+          <span class="go" data-en="77 terms, in English and Spanish" data-es="77 términos, en español e inglés"></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/OASISLocal/O.A.S.I.S.">
+          <span class="k" data-en="Source on GitHub" data-es="Código en GitHub"></span>
+          <span class="go" data-en="Issues and discussions welcome" data-es="Issues y discusiones bienvenidos"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</main>
+
+<footer>
+  <span data-en="Independent project · No trackers, no third-party requests"
+        data-es="Proyecto independiente · Sin rastreadores ni peticiones a terceros"></span>
+  <span>OASISLocal</span>
+</footer>
+
+</div>
+<script>
+(function () {
+  var root = document.documentElement;
+
+  var saved = null;
+  try { saved = localStorage.getItem('oasis-theme'); } catch (_) {}
+  root.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+
+  /* One URL, two languages, which is a compromise: a search engine sees the
+     English text in the source and cannot be told this page is also Spanish, so
+     there are no hreflang alternates here. If this page ever needs to rank in
+     both languages it has to split into / and /es/, the way the product site
+     already does. */
+  var nodes = document.querySelectorAll('[data-en]');
+  var buttons = document.querySelectorAll('[data-lang]');
+
+  function setLang(lang) {
+    root.setAttribute('lang', lang);
+    for (var i = 0; i < nodes.length; i++) {
+      var value = nodes[i].getAttribute('data-' + lang);
+      if (value) nodes[i].textContent = value;
+    }
+    for (var j = 0; j < buttons.length; j++) {
+      buttons[j].setAttribute('aria-pressed', buttons[j].getAttribute('data-lang') === lang ? 'true' : 'false');
+    }
+  }
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener('click', function () {
+      setLang(this.getAttribute('data-lang'));
+    });
+  }
+
+  var lang = 'en';
+  try { lang = localStorage.getItem('oasis-brand-lang') || 'en'; } catch (_) {}
+  setLang(lang === 'es' ? 'es' : 'en');
+
+  for (var m = 0; m < buttons.length; m++) {
+    /* Recorded on the click rather than inside setLang, so merely reading the
+       stored language on load does not rewrite the visitor's other tab. */
+    buttons[m].addEventListener('click', function () {
+      try { localStorage.setItem('oasis-brand-lang', this.getAttribute('data-lang')); } catch (_) {}
+    });
+  }
+}());
+</script>
+</body>
+</html>
