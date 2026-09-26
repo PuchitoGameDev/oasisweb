@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>O.A.S.I.S. — an independent project from Galicia</title>
+<title>O.A.S.I.S. — an independent project</title>
 <meta name="description" content="O.A.S.I.S. is an independent project from Galicia, Spain, building a free local-first AI assistant for Windows that runs compatible models on your own PC.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://oasislocal.github.io/">
 <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111111'/%3E%3Ccircle cx='16' cy='16' r='5.5' fill='none' stroke='%23e0b25f' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Crect x='7' y='7' width='18' height='18' fill='none' stroke='%23ffffff' stroke-width='2.5'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="O.A.S.I.S.">
-<meta property="og:title" content="O.A.S.I.S. — an independent project from Galicia">
-<meta property="og:description" content="A free local-first AI assistant for Windows, built by an independent project in Galicia, Spain. The oasis is on your own PC.">
+<meta property="og:title" content="O.A.S.I.S. — an independent project">
+<meta property="og:description" content="An independent project from Galicia, Spain, building a free local-first AI assistant for Windows.">
 <meta property="og:url" content="https://oasislocal.github.io/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oasislocal.github.io/O.A.S.I.S./assets/og-card.png">
@@ -23,16 +23,15 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="O.A.S.I.S. — the AI assistant that lives on your PC">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="O.A.S.I.S. — an independent project from Galicia">
-<meta name="twitter:description" content="A free local-first AI assistant for Windows, built by an independent project in Galicia, Spain.">
+<meta name="twitter:title" content="O.A.S.I.S. — an independent project">
+<meta name="twitter:description" content="An independent project from Galicia, Spain, building a free local-first AI assistant for Windows.">
 <meta name="twitter:image" content="https://oasislocal.github.io/O.A.S.I.S./assets/og-card.png">
 <link rel="stylesheet" href="/O.A.S.I.S./assets/fonts/fonts.css">
 <script>
 /* The theme has to be on <html> before the first paint. Reading it from the
    script at the end of the body is too late: the page paints once in dark and
-   then swaps, which is a white flash for anyone who chose light. Nine lines
-   here remove that, and the value is the same one the product site uses, so a
-   visitor keeps their choice across both. */
+   then swaps, which is a white flash for anyone who chose light. The key is the
+   same one the product site uses, so the choice survives across both. */
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('oasis-theme'); } catch (_) {}
@@ -40,436 +39,505 @@
 }());
 </script>
 <style>
-/* The brand idea in one line: an oasis is water you can reach without travelling
-   to someone else's. That is the whole argument for local-first, and the page is
-   built out of it — water light, a measured technical surface, and one warm
-   accent used sparingly the way low sun looks on sand. */
+/* This page is the entrance to the product, not a separate brand, so it wears the
+   product's own design system rather than a look of its own: the same tokens, the
+   same fonts, the same heavy 2px rules and the same section rhythm. Anything here
+   that the product does not already do — an accent colour, a texture, a
+   decorative flourish — would make the two sites look like two companies. */
 
-:root {
+:root,
+:root[data-theme="dark"] {
+  --bg: #111111;
+  --surface: #161616;
+  --panel: #1c1c1c;
+  --hover: #242424;
+  --ink: #ffffff;
+  --ink-2: #c9c9c9;
+  --ink-3: #8f8f8f;
+  --line: rgba(255, 255, 255, 0.16);
+  --strong: #ffffff;
+  --display: 'Space Grotesk', 'Inter', sans-serif;
+  --body: 'Inter', -apple-system, sans-serif;
+  --mono: 'Space Mono', 'IBM Plex Mono', monospace;
+  --code: 'IBM Plex Mono', monospace;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
   --bg: #f7f7f5;
+  --surface: #ffffff;
+  --panel: #f2f2ef;
+  --hover: #ebebe7;
   --ink: #111111;
   --ink-2: #3f3f3c;
-  --ink-3: #6b6b66;
-  --line: rgba(17, 17, 17, 0.16);
-  --line-2: rgba(17, 17, 17, 0.08);
-  --hover: #ecece7;
-  --accent: #8a6a1f;
-  --accent-soft: rgba(138, 106, 31, 0.12);
-  --water: rgba(138, 106, 31, 0.05);
-}
-[data-theme="dark"] {
-  --bg: #101010;
-  --ink: #f7f7f5;
-  --ink-2: #b9b9b4;
-  --ink-3: #8a8a85;
-  --line: rgba(247, 247, 245, 0.18);
-  --line-2: rgba(247, 247, 245, 0.09);
-  --hover: #1c1c1c;
-  --accent: #e0b25f;
-  --accent-soft: rgba(224, 178, 95, 0.14);
-  --water: rgba(224, 178, 95, 0.045);
+  --ink-3: #595959;
+  --line: rgba(17, 17, 17, 0.18);
+  --strong: #111111;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
-  /* Tells the browser to draw the scrollbar and any form control for this theme
-     instead of the light default, which on a dark page reads as a bright stripe
-     down the side. */
-  color-scheme: light;
   scrollbar-color: var(--ink-3) var(--bg);
 }
-[data-theme="dark"] { color-scheme: dark; }
 body {
   margin: 0;
-  min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.075rem);
-  line-height: 1.62;
-  font-feature-settings: 'kern' 1, 'liga' 1;
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
-/* Light on water, and a little grain over everything so the flat fills read as
-   a surface rather than as a void. Both are decorative and both are inert: no
-   script, no image request, no third party. */
-.water {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(120% 62% at 12% -8%, var(--water) 0%, transparent 58%),
-    radial-gradient(90% 50% at 88% 4%, var(--water) 0%, transparent 52%);
-}
-.grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.5;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
-}
-
-.shell {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 68rem;
+.wrap {
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 1.6rem clamp(1.15rem, 4vw, 3rem) 2rem;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
 }
+.narrow { max-width: 780px; }
 
-/* ---- small monospaced labels: the manual-technical register ---- */
-.mono {
-  font-family: 'Space Mono', ui-monospace, 'IBM Plex Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
+/* ---- top bar: the product's, minus the links that do not belong here ---- */
+.top {
+  border-bottom: 2px solid var(--strong);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
-
-.topbar {
+.top-in {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px solid var(--line-2);
+  gap: 14px;
 }
-
-.toggles { display: flex; gap: 0.1rem; margin-left: auto; }
-.toggles button {
-  font-family: 'Space Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-3);
-  background: none;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  padding: 0.24rem 0.6rem;
-  cursor: pointer;
-  transition: color 0.18s ease, border-color 0.18s ease;
-}
-.toggles button:hover { color: var(--ink); border-color: var(--line); }
-.toggles button[aria-pressed="true"] {
-  color: var(--accent);
-  border-color: var(--accent-soft);
-  background: var(--accent-soft);
-}
-
-main { flex: 1; display: flex; flex-direction: column; }
-
-/* ---- hero ---- */
-/* The vertical rhythm is deliberately tight. This page exists to route people to
-   the product, and an airy hero pushed the index below the fold, which is the one
-   thing the page is for. */
-.hero { padding: clamp(2.5rem, 8vh, 5rem) 0 clamp(1.5rem, 3.5vh, 2.25rem); }
-
-.mark {
-  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+.brand {
+  font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(2.1rem, 9.5vw, 5.25rem);
-  line-height: 0.94;
-  letter-spacing: 0.1em;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-/* The dots carry the accent and breathe out of step with each other, which is
-   the smallest possible piece of motion on the page. It is the one animation
-   worth having: it makes the wordmark feel alive without asking for attention. */
-.mark .dot {
-  color: var(--accent);
-  animation: breathe 4.2s ease-in-out infinite;
-}
-.mark .dot:nth-of-type(2) { animation-delay: 0.35s; }
-.mark .dot:nth-of-type(3) { animation-delay: 0.7s; }
-.mark .dot:nth-of-type(4) { animation-delay: 1.05s; }
-.mark .dot:nth-of-type(5) { animation-delay: 1.4s; }
-@keyframes breathe {
-  0%, 100% { opacity: 0.34; }
-  50% { opacity: 1; }
-}
-
-.lede {
-  font-size: clamp(1.28rem, 1.05rem + 1.1vw, 1.95rem);
-  line-height: 1.28;
-  letter-spacing: -0.014em;
-  font-weight: 500;
-  max-width: 30ch;
-  margin: clamp(1.4rem, 3vw, 2rem) 0 0;
-  text-wrap: balance;
-}
-.prose {
-  color: var(--ink-2);
-  max-width: 56ch;
-  margin: 1.15rem 0 0;
-  text-wrap: pretty;
-}
-.coords {
-  margin-top: clamp(1.75rem, 4vw, 2.5rem);
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--line-2);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.5rem;
-}
-
-/* ---- the spec table: facts, not adjectives ---- */
-.spec { margin-top: clamp(1.5rem, 3vw, 2rem); }
-.spec table { width: 100%; border-collapse: collapse; }
-.spec caption {
-  text-align: left;
-  padding-bottom: 0.7rem;
-  color: var(--ink-3);
-}
-.spec th, .spec td {
-  text-align: left;
-  padding: 0.5rem 0.9rem 0.5rem 0;
-  border-top: 1px solid var(--line-2);
-  vertical-align: baseline;
-}
-.spec th {
-  font-family: 'Space Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  width: 42%;
-  white-space: nowrap;
-}
-.spec td { color: var(--ink); }
-.spec tr:hover th, .spec tr:hover td { background: var(--hover); }
-
-.rule { border: 0; border-top: 1px solid var(--line); margin: clamp(1.75rem, 4vw, 2.5rem) 0 0; }
-
-/* ---- index: a table of contents, numbered like a manual ---- */
-.index { padding: 0.35rem 0 0; }
-.index ol { list-style: none; margin: 0; padding: 0; counter-reset: entry; }
-.index li { counter-increment: entry; border-top: 1px solid var(--line-2); }
-.index li:last-child { border-bottom: 1px solid var(--line-2); }
-.index a {
-  display: grid;
-  /* Four tracks, not three: the ::before counter is a grid item too, and leaving
-     it out is what pushed the arrow onto its own line. */
-  grid-template-columns: 2.6rem auto 1fr 1.15rem;
-  align-items: baseline;
-  gap: 0 clamp(0.6rem, 1.6vw, 1.25rem);
-  padding: 0.92rem 0.4rem 0.92rem 0;
+  font-size: 21px;
+  letter-spacing: -.03em;
   color: var(--ink);
   text-decoration: none;
-  transition: background 0.18s ease, padding-left 0.18s ease;
-}
-.index a::before {
-  content: "0" counter(entry);
-  grid-column: 1;
-  font-family: 'Space Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  color: var(--ink-3);
-  letter-spacing: 0.08em;
-}
-.index a:hover, .index a:focus-visible { background: var(--hover); padding-left: 0.5rem; }
-.index a:hover .arrow, .index a:focus-visible .arrow { color: var(--accent); transform: translateX(3px); }
-.index .label { grid-column: 2; font-weight: 500; }
-.index .note { grid-column: 3; text-align: right; color: var(--ink-3); font-size: 0.92em; }
-.index .arrow {
-  grid-column: 4;
-  justify-self: end;
-  color: var(--ink-3);
-  transition: color 0.18s ease, transform 0.18s ease;
-}
-/* Drawn, not typed: the subset has no U+2192, and a glyph that is not in the
-   font renders as an empty box. */
-.index .arrow svg { display: block; width: 1.05em; height: 1.05em; }
-
-footer {
-  margin-top: clamp(1.75rem, 4vw, 2.5rem);
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--line-2);
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.6rem 1.5rem;
+  align-items: center;
+  gap: 9px;
+}
+/* The product marks its brand with a bordered square. Same mark, so the two sites
+   are visibly the same. */
+.brand i {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--strong);
+  display: block;
+}
+/* The product's own theme button, copied rather than reinvented, including the
+   hover that inverts. It reads and writes the same oasis-theme key, so the
+   choice made here is already made on the product site. */
+#theme-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: none;
+  border: 1px solid var(--strong);
+  color: var(--ink);
+  padding: 8px 11px;
+  cursor: pointer;
+}
+#theme-btn:hover { background: var(--ink); color: var(--bg); }
+.toggles { display: flex; gap: 8px; align-items: center; margin-left: auto; }
+.toggles-set { display: flex; gap: 2px; }
+.toggles button {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  background: none;
+  border: 1px solid var(--line);
+  padding: 7px 11px;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+}
+.toggles button:hover { color: var(--ink); border-color: var(--strong); }
+.toggles button[aria-pressed="true"] { color: var(--ink); border-color: var(--strong); }
+
+/* ---- hero ---- */
+.hero { max-width: 1160px; margin: 0 auto; padding: 76px 24px 0; }
+.hero-in { max-width: 780px; }
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.0;
+  color: var(--ink);
+  font-size: clamp(38px, 6vw, 72px);
+  max-width: 16ch;
+}
+.lede { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin-top: 20px; }
+.lede strong { color: var(--ink); font-weight: 600; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  font-size: 14.5px;
+  font-weight: 600;
+  font-family: var(--body);
+  text-decoration: none;
+  border: 1px solid var(--strong);
+  color: var(--bg);
+  background: var(--strong);
+  cursor: pointer;
+  transition: opacity .15s ease;
+}
+.btn:hover { opacity: .82; color: var(--bg); }
+.btn.ghost { background: none; color: var(--ink); }
+.btn.ghost:hover { background: none; color: var(--ink); opacity: .7; }
+.fine { font-size: 13.5px; color: var(--ink-3); margin-top: 16px; }
+.fine a { color: var(--ink-2); }
+
+/* The product's proof strip: mono, boxed, one border between cells. Reused as-is
+   because it is the product's own way of stating facts. */
+.proof {
+  display: flex;
+  gap: 0;
+  margin-top: 26px;
+  border: 1px solid var(--strong);
+  width: fit-content;
+  max-width: 100%;
   flex-wrap: wrap;
 }
-footer .mono:last-child { color: var(--ink-2); }
+.proof span {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-2);
+  padding: 9px 15px;
+  border-right: 1px solid var(--line);
+}
+.proof span:last-child { border-right: 0; }
+.proof a { text-decoration: none; color: inherit; }
+.proof a:hover { color: var(--ink); }
 
-::selection { background: var(--accent-soft); color: var(--ink); }
+/* ---- sections ---- */
+.sec { max-width: 1160px; margin: 0 auto; padding: 88px 24px 0; }
+.sec-head {
+  border-top: 2px solid var(--strong);
+  padding-top: 16px;
+  margin-bottom: 36px;
+  max-width: 780px;
+}
+.sec-head .kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+}
+.sec-head h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  color: var(--ink);
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.05;
+  margin: 8px 0 10px;
+}
+.sec-head p { color: var(--ink-2); max-width: 62ch; margin: 0; }
 
-/* Focus ring, in two layers on purpose. :focus is the base so that anything
-   capable of showing a focus indicator does, and :focus:not(:focus-visible) takes
-   it away again for a click, where a ring is only noise. A lone :focus-visible
-   rule means a browser that does not match it for some focus path leaves a
-   keyboard user with nothing at all. */
+/* The product's card grid: a 2px box with hairline cells, not floating cards. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 2px solid var(--strong);
+}
+.grid > div { padding: 22px; border-right: 1px solid var(--strong); }
+.grid > div:nth-child(3n) { border-right: 0; }
+.grid h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  margin: 0 0 10px;
+}
+.grid p { margin: 0; color: var(--ink-2); font-size: 15px; }
+
+/* ---- destinations: the product's table idiom ---- */
+.tbl { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 26px; }
+.tbl table { width: 100%; border-collapse: collapse; }
+.tbl th, .tbl td {
+  text-align: left;
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: baseline;
+}
+.tbl th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  white-space: nowrap;
+  width: 34%;
+}
+.tbl td { color: var(--ink); }
+.tbl td .sub { display: block; color: var(--ink-3); font-size: 13.5px; margin-top: 3px; }
+.tbl a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink-3); }
+.tbl a:hover { border-bottom-color: var(--strong); color: var(--strong); }
+.tbl tr:last-child th, .tbl tr:last-child td { border-bottom: 0; }
+
+/* ---- footer: the product's four-column shape, trimmed ---- */
+.foot {
+  max-width: 1160px;
+  margin: 88px auto 0;
+  padding: 44px 24px 28px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 32px;
+  border-top: 2px solid var(--strong);
+}
+.fth {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  margin: 0 0 14px;
+}
+.foot ul { list-style: none; margin: 0; padding: 0; }
+.foot li { margin-bottom: 9px; }
+.foot a { color: var(--ink-2); text-decoration: none; font-size: 14.5px; }
+.foot a:hover { color: var(--ink); }
+.foot p { color: var(--ink-3); font-size: 13.5px; margin: 0; max-width: 34ch; }
+.base {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+  color: var(--ink-3);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+::selection { background: var(--strong); color: var(--bg); }
+
+/* Focus ring in two layers: :focus is the base so anything that can show a focus
+   indicator does, and :focus:not(:focus-visible) takes it away again for a click,
+   where a ring is only noise. */
 :where(a, button):focus {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--strong);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 :where(a, button):focus:not(:focus-visible) { outline: none; }
 
-@media (max-width: 40rem) {
-  .index a { grid-template-columns: 2.2rem 1fr; }
-  .index .label { grid-column: 2; }
-  .index .note { grid-column: 2; text-align: left; }
-  .index .arrow { display: none; }
-  .spec th { width: auto; }
-  .spec th, .spec td { display: block; border-top: 0; padding: 0 0 0.15rem; }
-  .spec tr { border-top: 1px solid var(--line-2); padding: 0.7rem 0; display: block; }
-  .spec tr:hover th, .spec tr:hover td { background: none; }
+@media (max-width: 60rem) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid > div:nth-child(3n) { border-right: 1px solid var(--strong); }
+  .grid > div:nth-child(2n) { border-right: 0; }
+  .foot { grid-template-columns: 1fr 1fr; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .mark .dot { animation: none; opacity: 0.7; }
-  * { transition-duration: 0.01ms !important; }
+@media (max-width: 40rem) {
+  .grid { grid-template-columns: 1fr; }
+  .grid > div { border-right: 0; border-bottom: 1px solid var(--strong); }
+  .grid > div:last-child { border-bottom: 0; }
+  .foot { grid-template-columns: 1fr; }
+  .sec-head { margin-bottom: 26px; }
+  .tbl th { width: auto; }
+  .hero { padding: 52px 24px 0; }
+  .sec { padding: 60px 24px 0; }
+  .top-in { padding: 12px 16px; }
 }
 </style>
 </head>
 <body>
-<div class="water" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
 
-<div class="shell">
-
-<header class="topbar">
-  <span class="mono" data-en="Independent project · Galicia, Spain"
-        data-es="Proyecto independiente · Galicia, España">Independent project · Galicia, Spain</span>
-  <div class="toggles" role="group" data-group-en="Language" data-group-es="Idioma" aria-label="Language">
-    <button type="button" data-lang="en" aria-pressed="true"
-            data-aria-en="Switch to English" data-aria-es="Cambiar a español">EN</button>
-    <button type="button" data-lang="es" aria-pressed="false"
-            data-aria-en="Switch to Spanish" data-aria-es="Cambiar a inglés">ES</button>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/O.A.S.I.S./"><i aria-hidden="true"></i>O.A.S.I.S.</a>
+    <div class="toggles">
+      <div role="group" class="toggles-set" data-group-en="Language" data-group-es="Idioma" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true"
+                data-aria-en="Switch to English" data-aria-es="Cambiar a español">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false"
+                data-aria-en="Switch to Spanish" data-aria-es="Cambiar a inglés">ES</button>
+      </div>
+      <button id="theme-btn" type="button" aria-label="Switch between light and dark">Light</button>
+    </div>
   </div>
 </header>
 
 <main>
-  <section class="hero">
-    <h1 class="mark"><span>O</span><span class="dot">.</span><span>A</span><span class="dot">.</span><span>S</span><span class="dot">.</span><span>I</span><span class="dot">.</span><span>S</span><span class="dot">.</span></h1>
 
-    <p class="lede" data-en="The oasis is on your own PC."
-       data-es="El oasis está en tu propio PC.">The oasis is on your own PC.</p>
-
-    <p class="prose" data-en="O.A.S.I.S. is an independent project from Galicia, Spain. It is a free, local-first AI assistant for Windows: the models run on your own hardware, so the assistant keeps working when the network does not, and nothing about what you ask it has to leave your computer."
-       data-es="O.A.S.I.S. es un proyecto independiente de Galicia (España). Es un asistente de IA gratuito y local-first para Windows: los modelos se ejecutan en tu propio equipo, así que sigue funcionando cuando la red no llega, y nada de lo que le preguntas tiene que salir de tu ordenador.">O.A.S.I.S. is an independent project from Galicia, Spain. It is a free, local-first AI assistant for Windows: the models run on your own hardware, so the assistant keeps working when the network does not, and nothing about what you ask it has to leave your computer.</p>
-
-    <div class="coords">
-      <span class="mono">42.88° N, 8.54° W</span>
-      <span class="mono" data-en="Windows 10 &amp; 11"
-            data-es="Windows 10 y 11">Windows 10 &amp; 11</span>
-      <span class="mono" data-en="English · Spanish"
-            data-es="Inglés · Español">English · Spanish</span>
+<section class="hero">
+  <div class="hero-in">
+    <h1 data-en="The AI assistant that lives on your PC."
+         data-es="El asistente de IA que vive en tu PC.">The AI assistant that lives on your PC.</h1>
+    <p class="lede" data-en="O.A.S.I.S. is an independent project from Galicia, Spain. It is a free, local-first AI assistant for Windows: <strong>the models run on your own computer</strong>, and nothing you ask it has to leave it."
+       data-es="O.A.S.I.S. es un proyecto independiente de Galicia (España). Es un asistente de IA gratuito y local-first para Windows: <strong>los modelos se ejecutan en tu propio ordenador</strong>, y nada de lo que le preguntas tiene que salir de él.">O.A.S.I.S. is an independent project from Galicia, Spain. It is a free, local-first AI assistant for Windows: <strong>the models run on your own computer</strong>, and nothing you ask it has to leave it.</p>
+    <div class="ctas">
+      <a class="btn" href="/O.A.S.I.S./" data-en="Visit the product site" data-es="Ir al sitio del producto">Visit the product site</a>
+      <a class="btn ghost" href="/O.A.S.I.S./download.html" data-en="Download" data-es="Descargar">Download</a>
     </div>
-  </section>
+    <p class="fine" data-en="Free beta · Windows 10/11 · No account required"
+       data-es="Beta gratuita · Windows 10/11 · Sin cuenta">Free beta · Windows 10/11 · No account required</p>
+    <div class="proof">
+      <span data-en="Local-first" data-es="Local-first">Local-first</span>
+      <span data-en="No analytics" data-es="Sin analítica">No analytics</span>
+      <span data-en="English · Spanish" data-es="Inglés · Español">English · Spanish</span>
+    </div>
+  </div>
+</section>
 
-  <section class="spec" aria-labelledby="spec-cap">
+<section class="sec">
+  <div class="sec-head">
+    <p class="kicker" data-en="About" data-es="Acerca de">About</p>
+    <h2 data-en="An independent project, not a company."
+        data-es="Un proyecto independiente, no una empresa.">An independent project, not a company.</h2>
+    <p data-en="There is no company behind O.A.S.I.S. and no sales team. The work is done in Galicia, Spain, and released in the open. What that buys is stated plainly on the product site rather than implied here."
+       data-es="Detrás de O.A.S.I.S. no hay ninguna empresa ni un equipo de ventas. El trabajo se hace en Galicia (España) y se publica en abierto. Lo que eso implica está expuesto con claridad en el sitio del producto, y aquí no se da por supuesto.">There is no company behind O.A.S.I.S. and no sales team. The work is done in Galicia, Spain, and released in the open. What that buys is stated plainly on the product site rather than implied here.</p>
+  </div>
+  <div class="grid">
+    <div>
+      <h3 data-en="Runs on your PC" data-es="Funciona en tu PC">Runs on your PC</h3>
+      <p data-en="Compatible local models through GGUF, on hardware you already own."
+         data-es="Modelos locales compatibles con GGUF, en el equipo que ya tienes.">Compatible local models through GGUF, on hardware you already own.</p>
+    </div>
+    <div>
+      <h3 data-en="Free, no account" data-es="Gratis, sin cuenta">Free, no account</h3>
+      <p data-en="No sign-up, no subscription and no telemetry. Nothing is collected because nothing is sent."
+         data-es="Sin registro, sin suscripción y sin telemetría. No se recoge nada porque no se envía nada.">No sign-up, no subscription and no telemetry. Nothing is collected because nothing is sent.</p>
+    </div>
+    <div>
+      <h3 data-en="Still in beta" data-es="Todavía en beta">Still in beta</h3>
+      <p data-en="The honest limits and the roadmap are published, so you can judge it before installing."
+         data-es="Los límites reales y la hoja de ruta están publicados, para que decidas antes de instalar.">The honest limits and the roadmap are published, so you can judge it before installing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-head">
+    <p class="kicker" data-en="Go deeper" data-es="Sigue">Go deeper</p>
+    <h2 data-en="Everything is on the product site."
+        data-es="Todo está en el sitio del producto.">Everything is on the product site.</h2>
+  </div>
+  <div class="tbl">
     <table>
-      <caption class="mono" id="spec-cap" data-en="What it is, plainly"
-              data-es="Qué es, sin rodeos">What it is, plainly</caption>
       <tbody>
         <tr>
-          <th scope="row" data-en="Price" data-es="Precio">Price</th>
-          <td data-en="Free, no account" data-es="Gratis, sin cuenta">Free, no account</td>
+          <th scope="row" data-en="Product" data-es="Producto">Product</th>
+          <td><a href="/O.A.S.I.S./">Features, honest limits, download</a>
+            <span class="sub" data-en="What it does, and what it does not."
+                  data-es="Lo que hace y lo que no hace.">What it does, and what it does not.</span></td>
         </tr>
         <tr>
-          <th scope="row" data-en="Status" data-es="Estado">Status</th>
-          <td data-en="Beta, version 0.2.0" data-es="Beta, versión 0.2.0">Beta, version 0.2.0</td>
+          <th scope="row" data-en="Journal" data-es="Journal">Journal</th>
+          <td><a href="/O.A.S.I.S./blog/">How it works, in plain language</a>
+            <span class="sub" data-en="Written for people who did not study the field."
+                  data-es="Escrito para quien no estudió el campo.">Written for people who did not study the field.</span></td>
         </tr>
         <tr>
-          <th scope="row" data-en="Runs on" data-es="Funciona en">Runs on</th>
-          <td data-en="Your PC. Local models via GGUF"
-              data-es="Tu PC. Modelos locales con GGUF">Your PC. Local models via GGUF</td>
+          <th scope="row" data-en="Glossary" data-es="Glosario">Glossary</th>
+          <td><a href="/O.A.S.I.S./glossary/">77 terms, defined without hand-waving</a>
+            <span class="sub" data-en="In English and Spanish."
+                  data-es="En español e inglés.">In English and Spanish.</span></td>
         </tr>
         <tr>
-          <th scope="row" data-en="Tracking" data-es="Seguimiento">Tracking</th>
-          <td data-en="None. No analytics, no third-party requests"
-              data-es="Ninguno. Sin analítica ni peticiones a terceros">None. No analytics, no third-party requests</td>
+          <th scope="row" data-en="Source" data-es="Código">Source</th>
+          <td><a href="https://github.com/OASISLocal/O.A.S.I.S.">GitHub</a>
+            <span class="sub" data-en="Issues and discussions are open."
+                  data-es="Issues y discusiones abiertas.">Issues and discussions are open.</span></td>
         </tr>
       </tbody>
     </table>
-  </section>
+  </div>
+</section>
 
-  <hr class="rule">
-
-  <nav class="index" aria-label="Main">
-    <ol>
-      <li>
-        <a href="/O.A.S.I.S./">
-          <span class="label" data-en="Product site" data-es="Sitio del producto">Product site</span>
-          <span class="note" data-en="Features, honest limits, download"
-                data-es="Características, límites honestos, descarga">Features, honest limits, download</span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-      </li>
-      <li>
-        <a href="/O.A.S.I.S./blog/">
-          <span class="label" data-en="Journal" data-es="Journal">Journal</span>
-          <span class="note" data-en="How it works, in plain language"
-                data-es="Cómo funciona, en lenguaje claro">How it works, in plain language</span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-      </li>
-      <li>
-        <a href="/O.A.S.I.S./glossary/">
-          <span class="label" data-en="Glossary" data-es="Glosario">Glossary</span>
-          <span class="note" data-en="77 terms, defined without hand-waving"
-                data-es="77 términos, definidos sin rodeos">77 terms, defined without hand-waving</span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/OASISLocal/O.A.S.I.S.">
-          <span class="label" data-en="Source" data-es="Código">Source</span>
-          <span class="note" data-en="Issues and discussions welcome"
-                data-es="Issues y discusiones bienvenidos">Issues and discussions welcome</span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-      </li>
-    </ol>
-  </nav>
 </main>
 
 <footer>
-  <span class="mono" data-en="No trackers · No third-party requests"
-        data-es="Sin rastreadores · Sin peticiones a terceros">No trackers · No third-party requests</span>
-  <span class="mono">OASISLocal</span>
+  <div class="foot">
+    <div>
+      <h3 class="fth">O.A.S.I.S.</h3>
+      <p data-en="An independent project from Galicia, Spain. Free, local-first and open."
+            data-es="Un proyecto independiente de Galicia (España). Gratis, local-first y abierto.">An independent project from Galicia, Spain. Free, local-first and open.</p>
+    </div>
+    <div>
+      <h3 class="fth" data-en="Product" data-es="Producto">Product</h3>
+      <ul>
+        <li><a href="/O.A.S.I.S./" data-en="Overview" data-es="Resumen">Overview</a></li>
+        <li><a href="/O.A.S.I.S./download.html" data-en="Download" data-es="Descargar">Download</a></li>
+        <li><a href="/O.A.S.I.S./blog/" data-en="Journal" data-es="Journal">Journal</a></li>
+        <li><a href="/O.A.S.I.S./glossary/" data-en="Glossary" data-es="Glosario">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="fth" data-en="Project" data-es="Proyecto">Project</h3>
+      <ul>
+        <li><a href="https://github.com/OASISLocal/O.A.S.I.S.">GitHub</a></li>
+        <li><a href="/O.A.S.I.S./changelog.html" data-en="Changelog" data-es="Cambios">Changelog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="base">
+    <span data-en="No trackers · No third-party requests"
+          data-es="Sin rastreadores · Sin peticiones a terceros">No trackers · No third-party requests</span>
+    <span>OASISLocal</span>
+  </div>
 </footer>
-
-</div>
 
 <script>
 (function () {
   var root = document.documentElement;
-  var TEXT = '[data-en]';
-  var nodes = document.querySelectorAll(TEXT);
+  var nodes = document.querySelectorAll('[data-en]');
   var buttons = document.querySelectorAll('[data-lang]');
-  var group = document.querySelector('.toggles');
+  var group = document.querySelector('.toggles-set');
+  var themeBtn = document.getElementById('theme-btn');
 
-  /* One URL, two languages. This is a deliberate compromise and it has a cost
-     worth naming: a single address cannot carry hreflang alternates, so a search
-     engine is told about the English in the source and nothing about the
-     Spanish. If this page ever has to rank in both, it has to split into / and
-     /es/ the way the product site already does. Until then the English is real
-     markup rather than something JavaScript has to inject, so the page still
-     says something with scripting off. */
-  var current = 'en';
-  function setLang(lang) {
-    current = lang;
+  /* The label names the theme you would switch TO, which is what the product
+     site does, so the two buttons never disagree about what they will do. */
+  function paintThemeBtn() {
+    if (!themeBtn) return;
+    var dark = root.getAttribute('data-theme') !== 'light';
+    themeBtn.textContent = dark ? 'Light' : 'Dark';
+    themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('oasis-theme', next); } catch (_) {}
+      paintThemeBtn();
+    });
+    paintThemeBtn();
+  }
+
+  /* One URL, two languages. The compromise is worth naming: a single address
+     cannot carry hreflang alternates, so a search engine is told about the
+     English in the source and nothing about the Spanish. If this page ever has
+     to rank in both it has to split into / and /es/, the way the product site
+     already does. Until then the English is real markup rather than something
+     JavaScript has to inject, so the page still says something with scripting
+     off.
+
+     innerHTML rather than textContent because the Spanish strings carry their
+     own markup — the <strong> in the lede — and the two languages have to swap
+     in both directions without losing it. The values come from this file's own
+     data attributes, never from a network response. */
+  function apply(lang) {
     root.setAttribute('lang', lang);
     for (var i = 0; i < nodes.length; i++) {
       var value = nodes[i].getAttribute('data-' + lang);
-      if (value) nodes[i].textContent = value;
+      if (value) nodes[i].innerHTML = value;
     }
     for (var j = 0; j < buttons.length; j++) {
       var b = buttons[j];
@@ -485,16 +553,14 @@ footer .mono:last-child { color: var(--ink-2); }
 
   function onLangClick() {
     var lang = this.getAttribute('data-lang');
-    setLang(lang);
+    apply(lang);
     try { localStorage.setItem('oasis-brand-lang', lang); } catch (_) {}
   }
   for (var k = 0; k < buttons.length; k++) buttons[k].addEventListener('click', onLangClick);
 
-  /* The theme was already applied in the head, before the first paint, so all
-     that is left here is the language. */
   var stored = 'en';
   try { stored = localStorage.getItem('oasis-brand-lang') || 'en'; } catch (_) {}
-  setLang(stored === 'es' ? 'es' : 'en');
+  if (stored === 'es') apply('es');
 }());
 </script>
 </body>
