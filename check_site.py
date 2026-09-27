@@ -248,10 +248,28 @@ for f in glob.glob("*.html"):
         notes.append("page not listed in sitemap: %s" % p)
 
 # ---------------------------------------------------- 3. sitemap is generated
+def without_lastmod(xml):
+    """The sitemap minus the <lastmod> values.
+
+    lastmod is derived from the date of the last commit that touched a page, so
+    it changes on every content edit. Comparing it here made the gate fail on the
+    first deploy after any change to any page, while sync-web.ps1 only
+    regenerates the sitemap after the checks have run — so the workflow demanded
+    two deploys to get a one-word change out, twice in a row. What this check is
+    actually for is the structure: the set of URLs and the hreflang alternates
+    beside them. Those are compared exactly; lastmod is refreshed on deploy.
+    """
+    return re.sub(r"<lastmod>.*?</lastmod>", "<lastmod/>", xml, flags=re.S)
+
 try:
     import build_sitemap
-    if build_sitemap.build() != sitemap:
+    generated = build_sitemap.build()
+    if without_lastmod(generated) != without_lastmod(sitemap):
         fail("sitemap.xml does not match build_sitemap.py output (run: python build_sitemap.py)")
+    elif generated != sitemap:
+        notes.append("sitemap lastmod is stale for the pages just committed; "
+                     "sync-web.ps1 regenerates it before deploying")
+        notes.append("sitemap structure matches build_sitemap.py (%d urls)" % len(sitemap_locs))
     else:
         notes.append("sitemap matches build_sitemap.py (%d urls)" % len(sitemap_locs))
 except Exception as e:
