@@ -329,9 +329,7 @@ input[type="checkbox"], input[type="radio"], [role="button"] { cursor: pointer; 
 {{ content }}
 </main>
 
-<footer class="blog-footer">
-<a href="{{ lp | append: '/' | relative_url }}">{% if es %}Inicio{% else %}Home{% endif %}</a> · <a href="{{ lp | append: '/blog/' | relative_url }}">Blog</a> · <a href="{{ lp | append: '/glossary/' | relative_url }}">{% if es %}Glosario{% else %}Glossary{% endif %}</a> · <a href="{{ lp | append: '/faq.html' | relative_url }}">FAQ</a> · <a href="{{ lp | append: '/about.html' | relative_url }}">{% if es %}Acerca de{% else %}About{% endif %}</a> · <a href="{{ '/blog/feed.xml' | relative_url }}">{% if es %}Canal RSS{% else %}RSS feed{% endif %}</a> · <a href="https://github.com/OASISLocal/O.A.S.I.S." target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://github.com/OASISLocal/O.A.S.I.S./discussions" target="_blank" rel="noopener noreferrer">{% if es %}Comunidad{% else %}Community{% endif %}</a> · <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a>
-</footer>
+{% include foot.html %}
 <script>
 (function(){var r=document.documentElement,b=document.getElementById('theme-btn'),m=document.querySelector('meta[name=\"theme-color\"]');function p(t){r.setAttribute('data-theme',t);if(b)b.textContent=(t==='light')?'{% if es %}Oscuro{% else %}Dark{% endif %}':'{% if es %}Claro{% else %}Light{% endif %}';if(m)m.content=(t==='light')?'#f7f7f5':'#111111';try{localStorage.setItem('oasis-theme',t);}catch(_){}}var s=null;try{s=localStorage.getItem('oasis-theme');}catch(_){}p(s==='light'||s==='dark'?s:'dark');if(b)b.addEventListener('click',function(){p(r.getAttribute('data-theme')==='light'?'dark':'light');});}());
 </script>

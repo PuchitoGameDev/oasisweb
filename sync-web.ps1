@@ -113,6 +113,12 @@ if (Get-Command python -ErrorAction SilentlyContinue) {
   Write-Host "-- python build_faqpage.py --check" -ForegroundColor DarkGray
   python build_faqpage.py --check
   if ($LASTEXITCODE -ne 0) { Fail "build_faqpage.py --check failed (the FAQPage schema does not match the visible FAQ). Run: python build_faqpage.py" }
+  # The site had five different footers and nothing failed, because a footer is
+  # not a broken link: each variant was valid, reachable and inconsistent. This
+  # compares every page's footer against its own home, links and wording.
+  Write-Host "-- python check_footers.py" -ForegroundColor DarkGray
+  python check_footers.py
+  if ($LASTEXITCODE -ne 0) { Fail "check_footers.py failed (a page's footer differs from the home page's, in links, columns or language). The reference is the footer in index.html / es/index.html" }
   # The webfonts are subset to the characters the built site actually renders.
   # It also fails if a subset ever dropped a glyph the site draws, which would
   # show up as an empty box with nothing else noticing.

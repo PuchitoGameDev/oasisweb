@@ -1,0 +1,62 @@
+{%- comment -%}
+  The one footer. Every Jekyll-rendered page includes this, so the blog, the
+  glossary, the posts and the legal pages cannot drift away from the product
+  pages: the site used to have four different footers, and the only reason this
+  file exists is to make a fifth impossible.
+
+  Paths go through relative_url rather than staying relative, because the pages
+  that use this include sit at different depths (the Journal posts are two levels
+  down) and a relative "download.html" would resolve to /blog/2026/download.html.
+
+  lp is the language prefix: empty for English, /es for Spanish. The pages under
+  /assets/, llms.txt and the feeds are shared and deliberately carry no prefix.
+
+  The static pages cannot include this, because a file with no front matter is
+  copied by Jekyll without rendering Liquid. They carry their own copy of the same
+  markup, and check_footers.py compares every footer's links against the home to
+  keep the two from diverging.
+{%- endcomment -%}
+{%- assign es = false -%}{%- if page.lang == 'es' -%}{%- assign es = true -%}{%- endif -%}
+{%- assign lp = '' -%}{%- if es -%}{%- assign lp = '/es' -%}{%- endif -%}
+<footer>
+  <div class="foot">
+    <div>
+      <span class="fb" translate="no">■ O.A.S.I.S.</span>
+      <p>{% if es %}El asistente de IA que vive en tu PC. Los flujos de trabajo locales se quedan en tu PC.{% else %}The AI assistant that lives on your PC. Local workflows stay on your PC.{% endif %}</p>
+    </div>
+    <div>
+      <h3 class="fth">{% if es %}Producto{% else %}Product{% endif %}</h3>
+      <ul>
+        <li><a href="{{ lp | append: '/download.html' | relative_url }}">{% if es %}Descargar{% else %}Download{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/how-it-works.html' | relative_url }}">{% if es %}Cómo funciona{% else %}How it works{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/requirements.html' | relative_url }}">{% if es %}Requisitos{% else %}Requirements{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/comparison.html' | relative_url }}">{% if es %}Comparar{% else %}Compare{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/' | relative_url }}#pricing">{% if es %}Precios{% else %}Pricing{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/features.html' | relative_url }}">{% if es %}Ficha técnica{% else %}Spec sheet{% endif %}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="fth">{% if es %}Recursos{% else %}Resources{% endif %}</h3>
+      <ul>
+        <li><a href="https://github.com/OASISLocal/O.A.S.I.S./tree/main/docs" target="_blank" rel="noopener noreferrer">{% if es %}Documentación{% else %}Documentation{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/blog/' | relative_url }}">Journal</a></li>
+        <li><a href="{{ lp | append: '/changelog.html' | relative_url }}#roadmap">{% if es %}Hoja de ruta{% else %}Roadmap{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/changelog.html' | relative_url }}">{% if es %}Novedades{% else %}Changelog{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/glossary/' | relative_url }}">{% if es %}Glosario{% else %}Glossary{% endif %}</a></li><li><a href="{{ '/llms.txt' | relative_url }}">llms.txt{% if es %} (para IA){% else %} (for AI){% endif %}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="fth">{% if es %}Confianza y comunidad{% else %}Trust &amp; Community{% endif %}</h3>
+      <ul>
+        <li><a href="{{ lp | append: '/privacy.html' | relative_url }}">{% if es %}Privacidad{% else %}Privacy{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/privacy-policy.html' | relative_url }}">{% if es %}Política de privacidad{% else %}Privacy Policy{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/eula.html' | relative_url }}">EULA</a></li>
+        <li><a href="{{ lp | append: '/third-party-notices.html' | relative_url }}">{% if es %}Avisos de terceros{% else %}Third-party notices{% endif %}</a></li>
+        <li><a href="{{ lp | append: '/security.html' | relative_url }}">{% if es %}Seguridad{% else %}Security{% endif %}</a></li>
+        <li><a href="https://github.com/OASISLocal/O.A.S.I.S." target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://github.com/OASISLocal/O.A.S.I.S./discussions" target="_blank" rel="noopener noreferrer">{% if es %}Debates{% else %}Discussions{% endif %}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="base"><span>© O.A.S.I.S. · v0.2.0 · beta</span><span>{% if es %}sin rastreadores en esta página{% else %}no trackers on this page{% endif %}</span></div>
+</footer>
